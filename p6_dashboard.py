@@ -216,8 +216,8 @@ if acts:
         m = {"Complete": "color: #34d399", "In Progress": "color: #60a5fa", "Not Started": "color: #94a3b8"}
         return m.get(val, "")
 
-    styled = df_show.style.applymap(color_float, subset=["Total Float"] if "Total Float" in df_show.columns else []) \
-                          .applymap(color_status, subset=["Status"] if "Status" in df_show.columns else [])
+    styled = df_show.style.map(color_float, subset=["Total Float"] if "Total Float" in df_show.columns else []) \
+                          .map(color_status, subset=["Status"] if "Status" in df_show.columns else [])
     st.dataframe(styled, use_container_width=True, height=320)
 
 st.divider()
